@@ -1,0 +1,13 @@
+frst e file gulo notepad e open korbo sob....
+
+
+
+erpr chrome e giye localhost/phpmyadmin  likhe enter dibo....
+restaurant database ta open hobe ...
+
+
+
+erpr arekta tab e localhost/foodcorner/index.php   likhe enter dibo 
+
+
+output pabo.....

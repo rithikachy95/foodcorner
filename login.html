@@ -1,0 +1,57 @@
+ <?php
+    session_start();
+     //connect to database
+     $db=mysqli_connect("localhost", "root", " ", "authentication");
+	 if (isset($_POST['Login_btn'])){
+	 session_start();
+	 $email = mysql_real_escape_string($_POST['email']);
+	 $password = mysql_real_escape_string($_POST['password']);
+	 $password2 = mysql_real_escape_string($_POST['password2']);
+	 
+	 if ($password == $password2){
+	  // create user
+	   $password = md5($password); //hash password before storing for security purposes
+	   $sql = "INSERT INTO users(email,password) VALUES('$email','$password')";
+	   mysqli_query($bd,$sql);
+	   $_SESSION['message'] = "you are now logged in";
+	   header("location: index.php"); //redirect to home page
+	   }
+	   else
+	   {
+	   $_SESSION['message'] = "The two passwords do not match";
+	   }
+	   }
+	  ?>	 
+	
+	
+	
+	
+	<div style="width: 30%;margin: 0 auto">
+	<form action="index.php" method="post" >
+        <table>
+            <h1><marquee>WELCOME TO FOOD CORNER</marquee></h1>
+            <tr>
+                <td>email</td>
+                <td><input type="text"  name="email" id=""></td>
+            </tr>
+           
+            <tr>
+                <td>password</td>
+                
+                    <td><input type="password" name="password" id="password"></td>
+                
+            </tr>
+			<tr>
+                <td>password2</td>
+                
+                    <td><input type="password" name="password2" id="password"></td>
+                
+            </tr>
+			
+            <tr>
+                <td></td>
+                <td><input type="submit" name="Login" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+</div>
